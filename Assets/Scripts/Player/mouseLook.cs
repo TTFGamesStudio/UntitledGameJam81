@@ -17,6 +17,9 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private Transform camera;
     [SerializeField] private Vector2 input;
     [SerializeField] private TextMeshProUGUI useText;
+    [SerializeField] private characterMotor motor;
+    [SerializeField] private interactionTriggers triggers;
+    [SerializeField] private Rigidbody rb;
 
     [Header("Data")] 
     [SerializeField] private bool paused;
@@ -24,12 +27,16 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private GameObject lookAtObject;
     [SerializeField] private LayerMask lookAtMask;
     [SerializeField] private bool cursorLocked = true;
+    [SerializeField] private bool lookingAtNote = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rot = new Vector2(camera.rotation.eulerAngles.x, collider.rotation.eulerAngles.y);
+        rot = new Vector2(0, collider.rotation.eulerAngles.y);
+        motor = GetComponent<characterMotor>();
+        triggers = GetComponent<interactionTriggers>();
         lockCursor();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,6 +47,34 @@ public class mouseLook : MonoBehaviour
             updateInput();
             getRotation();
             getLookAtObject();
+        }
+        else
+        {
+            useText.color = new Color(1, 1, 1,0);
+        }
+        //do interaction
+        if (Input.GetKeyUp(KeyCode.E) && lookAtObject != null)
+        {
+            if (lookAtObject.tag == "note")
+            {
+                //the object is a note
+                if (lookingAtNote)
+                {
+                    lookingAtNote = false;
+                    rb.isKinematic = false;
+                    unPause();
+                    motor.unPause();
+                    lookAtObject.GetComponent<noteController>().returnNote();
+                }
+                else
+                {
+                    lookingAtNote = true;
+                    rb.isKinematic = true;
+                    pause();
+                    motor.pause();
+                    lookAtObject.GetComponent<noteController>().startNote();
+                }
+            }
         }
     }
     
@@ -55,6 +90,7 @@ public class mouseLook : MonoBehaviour
 
     float xRot()
     {
+        Debug.Log(rot.x + " | " + calculateRot(input.y) + " | " + Mathf.Clamp(rot.x + calculateRot(input.y), xClamp.x, xClamp.y) );
         return Mathf.Clamp(rot.x + calculateRot(input.y), xClamp.x, xClamp.y);
     }
 
@@ -118,7 +154,7 @@ public class mouseLook : MonoBehaviour
             lookAtObject = null;
         }
 
-        if (lookAtObject != null)
+        if (lookAtObject != null && !lookingAtNote)
         {
             useText.color = new Color(1, 1, 1,1);
         }
@@ -126,5 +162,10 @@ public class mouseLook : MonoBehaviour
         {
             useText.color = new Color(1, 1, 1,0);
         }
+    }
+
+    void interactWithObject()
+    {
+        
     }
 }

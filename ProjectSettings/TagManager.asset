@@ -12,6 +12,9 @@ TagManager:
   - startCrawlTrigger
   - stopCrawlTrigger
   - monsterShadowTrigger
+  - fallSoundTrigger
+  - gameOverTrigger
+  - rockslideTrigger
   layers:
   - Default
   - TransparentFX

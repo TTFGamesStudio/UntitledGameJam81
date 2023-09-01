@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class interactionTriggers : MonoBehaviour
 {
@@ -52,6 +53,22 @@ public class interactionTriggers : MonoBehaviour
             Destroy(monsterBiteDirector.gameObject);
             Destroy(other.gameObject);
             monsterRunDirector.Play();
+        }
+
+        if (other.tag == "fallSoundTrigger")
+        {
+            GameObject.Find("fallingSound").GetComponent<AudioSource>().Play();
+        }
+
+        if (other.tag == "gameOverTrigger")
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (other.tag == "rockslideTrigger")
+        {
+            GameObject.Find("Rockslide").GetComponent<PlayableDirector>().Play();
+            Destroy(other.gameObject);
         }
     }
 
