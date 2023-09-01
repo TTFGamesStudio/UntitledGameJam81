@@ -9,6 +9,9 @@ TagManager:
   - world
   - water
   - kill
+  - startCrawlTrigger
+  - stopCrawlTrigger
+  - monsterShadowTrigger
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,9 @@ public class characterMotor : MonoBehaviour
     [SerializeField] private float walkSpeed;
     [SerializeField] private Vector2 input;
     [SerializeField] private float gravity;
+
+    [Header("Data")] 
+    [SerializeField] private bool paused;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,11 @@ public class characterMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateInput();
-        controller.Move(getMoveVector());
-
+        if (!paused)
+        {
+            updateInput();
+            controller.Move(getMoveVector());
+        }
     }
 
     void updateInput()
@@ -42,5 +47,15 @@ public class characterMotor : MonoBehaviour
             (facing.right * walkSpeed * Time.deltaTime * input.x) +
             new Vector3(0, gravity, 0);
         return move;
+    }
+    
+    public void pause()
+    {
+        paused = true;
+    }
+
+    public void unPause()
+    {
+        paused = false;
     }
 }

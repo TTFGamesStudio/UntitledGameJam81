@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class mouseLook : MonoBehaviour
 {
@@ -14,8 +16,10 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private Transform collider;
     [SerializeField] private Transform camera;
     [SerializeField] private Vector2 input;
+    [SerializeField] private TextMeshProUGUI useText;
 
     [Header("Data")] 
+    [SerializeField] private bool paused;
     [SerializeField] private bool lockMouse;
     [SerializeField] private GameObject lookAtObject;
     [SerializeField] private LayerMask lookAtMask;
@@ -31,8 +35,12 @@ public class mouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateInput();
-        getRotation();
+        if (!paused)
+        {
+            updateInput();
+            getRotation();
+            getLookAtObject();
+        }
     }
     
     void updateInput()
@@ -87,5 +95,36 @@ public class mouseLook : MonoBehaviour
     {
         cursorLocked = false;
         cursorLock();
+    }
+
+    public void pause()
+    {
+        paused = true;
+    }
+
+    public void unPause()
+    {
+        paused = false;
+    }
+
+    void getLookAtObject()
+    {
+        if (Physics.Raycast(camera.position, camera.forward,out RaycastHit hit, lookAtDistance, lookAtMask))
+        {
+            lookAtObject = hit.transform.gameObject;
+        }
+        else
+        {
+            lookAtObject = null;
+        }
+
+        if (lookAtObject != null)
+        {
+            useText.color = new Color(1, 1, 1,1);
+        }
+        else
+        {
+            useText.color = new Color(1, 1, 1,0);
+        }
     }
 }
