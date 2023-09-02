@@ -14,6 +14,8 @@ public class interactionTriggers : MonoBehaviour
 
     [SerializeField] private PlayableDirector monsterBiteDirector;
     [SerializeField] private PlayableDirector monsterRunDirector;
+    
+    
     // Start is called before the first frame update
     void Start()
     {

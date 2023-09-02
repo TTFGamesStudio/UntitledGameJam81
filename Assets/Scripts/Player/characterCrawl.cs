@@ -18,6 +18,8 @@ public class characterCrawl : MonoBehaviour
     [SerializeField] private Image fillLeft;
     [SerializeField] private Image fillRight;
     [SerializeField] private AudioSource dragSound;
+    [SerializeField] private Animator leftArm;
+    [SerializeField] private Animator rightArm;
 
     [Header("Crawling")] 
     [SerializeField] private bool isCrawling;
@@ -53,6 +55,7 @@ public class characterCrawl : MonoBehaviour
                 staminaRefillSpeed *= .99f;
                 dragSound.pitch = Random.Range(0.9f, 1.1f);
                 dragSound.Play();
+                leftArm.SetTrigger("drag");
             }
             
             if (Input.GetKeyUp(KeyCode.E) && RightStamina >= 0.5f)
@@ -62,6 +65,7 @@ public class characterCrawl : MonoBehaviour
                 staminaRefillSpeed *= .99f;
                 dragSound.pitch = Random.Range(0.9f, 1.1f);
                 dragSound.Play();
+                rightArm.SetTrigger("drag");
             }
 
             fillLeft.fillAmount = leftStamina;
