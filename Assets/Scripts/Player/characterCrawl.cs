@@ -110,7 +110,7 @@ public class characterCrawl : MonoBehaviour
         controller.enabled = false;
         isCrawling = true;
         rb.height = 0.5f;
-
+        GameObject.FindObjectOfType<playerDialogs>().startCrawling();
     }
 
     [Button]

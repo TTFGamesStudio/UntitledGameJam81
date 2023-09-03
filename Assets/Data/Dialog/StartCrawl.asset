@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8715d1d427c5c3041915a84a3902eb57, type: 3}
-  m_Name: debugDialog
+  m_Name: StartCrawl
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 84355c7e762401c45af647810b2e4220, type: 2}
-  - {fileID: 11400000, guid: 230c16b772cf0a941bbd07377eb1af3c, type: 2}
-  - {fileID: 11400000, guid: 77ba40f2981f6f4478ac1048b166f7d9, type: 2}
+  - {fileID: 11400000, guid: 8d4c4f5501bb54b4d9ebcf32581b5525, type: 2}
   alwaysShowSubtitles: 0
   dontPlayAudio: 0
   continueGameplay: 0

@@ -20,6 +20,7 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private characterMotor motor;
     [SerializeField] private interactionTriggers triggers;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private dialogConversation noteConvo;
 
     [Header("Data")] 
     [SerializeField] private bool paused;
@@ -28,6 +29,7 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private LayerMask lookAtMask;
     [SerializeField] private bool cursorLocked = true;
     [SerializeField] private bool lookingAtNote = false;
+    [SerializeField] private bool lookedAtNote;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,11 @@ public class mouseLook : MonoBehaviour
                 //the object is a note
                 if (lookingAtNote)
                 {
+                    if (!lookedAtNote)
+                    {
+                        lookedAtNote = true;
+                        GameObject.FindObjectOfType<dialogManager>().startDialog(noteConvo);
+                    }
                     lookingAtNote = false;
                     rb.isKinematic = false;
                     unPause();
@@ -90,7 +97,6 @@ public class mouseLook : MonoBehaviour
 
     float xRot()
     {
-        Debug.Log(rot.x + " | " + calculateRot(input.y) + " | " + Mathf.Clamp(rot.x + calculateRot(input.y), xClamp.x, xClamp.y) );
         return Mathf.Clamp(rot.x + calculateRot(input.y), xClamp.x, xClamp.y);
     }
 

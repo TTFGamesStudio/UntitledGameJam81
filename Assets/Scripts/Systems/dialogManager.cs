@@ -14,6 +14,7 @@ public class dialogManager : MonoBehaviour
     public dialogConversation currentConversation;
     public dialogLine currentLine;
     private int dialogIndex;
+    public GameObject audioPrefab;
 
     public TextMeshProUGUI dialogDisplay;
     // Start is called before the first frame update
@@ -75,6 +76,16 @@ public class dialogManager : MonoBehaviour
         dialogDisplay.color = Color.white;
         dialogDisplay.text = currentLine.dialog;
         //play the audio from the sound source
+
+        if (currentLine.soundClip != null)
+        {
+            GameObject G = Instantiate(audioPrefab);
+            AudioSource a=G.GetComponent<AudioSource>();
+            autoDelete d = G.GetComponent<autoDelete>();
+            a.clip = currentLine.soundClip;
+            a.Play();
+            d.setup(a.clip.length);
+        }
     }
 
     private void nextLine()
