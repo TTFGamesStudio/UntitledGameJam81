@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8715d1d427c5c3041915a84a3902eb57, type: 3}
+  m_Name: endCrawl
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 11400000, guid: ab06d34c561f2e24fad7c45f44166a88, type: 2}
+  - {fileID: 11400000, guid: 96ada59bfd021154bb58ee27bbe956f4, type: 2}
+  alwaysShowSubtitles: 0
+  dontPlayAudio: 0
+  continueGameplay: 0

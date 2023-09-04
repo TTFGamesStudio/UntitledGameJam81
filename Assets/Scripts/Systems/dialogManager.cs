@@ -15,6 +15,10 @@ public class dialogManager : MonoBehaviour
     public dialogLine currentLine;
     private int dialogIndex;
     public GameObject audioPrefab;
+    
+    public delegate void conversationEnded();
+    public static event conversationEnded dialogEndedEvent;
+    
 
     public TextMeshProUGUI dialogDisplay;
     // Start is called before the first frame update
@@ -119,5 +123,10 @@ public class dialogManager : MonoBehaviour
         dialogTimer = 0;
         currentLine = null;
         currentConversation = null;
+
+        if (dialogEndedEvent != null)
+        {
+            dialogEndedEvent();
+        }
     }
 }

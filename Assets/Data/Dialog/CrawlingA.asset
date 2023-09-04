@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CrawlingA
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: d580e2ddf148e4e4e9c00a4bd59cb48a, type: 2}
+  - {fileID: 11400000, guid: e29f76af666864746bc6d002922ff5a7, type: 2}
+  - {fileID: 11400000, guid: a6029f1ea16c6e8439a43d4da4d00aed, type: 2}
   alwaysShowSubtitles: 0
   dontPlayAudio: 0
   continueGameplay: 0

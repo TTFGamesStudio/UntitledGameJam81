@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8715d1d427c5c3041915a84a3902eb57, type: 3}
   m_Name: CrawlingMonsterCatchUp
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - {fileID: 11400000, guid: 1f33e0c519f5b284abe1538498606400, type: 2}
+  - {fileID: 11400000, guid: ec51ac1e02b18e94fa58923c522d269d, type: 2}
+  - {fileID: 11400000, guid: 41e37083a01cd1d49a91454d34e7acf4, type: 2}
   alwaysShowSubtitles: 0
   dontPlayAudio: 0
   continueGameplay: 0

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - {fileID: 11400000, guid: 9c47b3aad9deb9742a97f7488b0f45e7, type: 2}
+  - {fileID: 11400000, guid: c656ae7de89e7cf46a7d5fa7cecf9ba0, type: 2}
+  - {fileID: 11400000, guid: 88aef1366751c9743937ef2d040e2235, type: 2}
+  - {fileID: 11400000, guid: 92e14e36ffdbf3041b1578e5e3047832, type: 2}
   alwaysShowSubtitles: 0
   dontPlayAudio: 0
   continueGameplay: 0

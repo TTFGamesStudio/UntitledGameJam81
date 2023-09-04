@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c1a75f24525f949b1ccd9a3644d9e9, type: 3}
+  m_Name: CrawlingMonsterLine 3
+  m_EditorClassIdentifier: 
+  dialog: I have to get the hell out of here!
+  soundClip: {fileID: 8300000, guid: faa9b5fbcf012f74ca85a2f61235ba3e, type: 3}
+  length: 7.326984
+  pauseAfter: 0

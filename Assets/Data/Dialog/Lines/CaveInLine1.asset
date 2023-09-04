@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CaveInLine1
   m_EditorClassIdentifier: 
   dialog: Shit...
-  soundClip: {fileID: 8300000, guid: 7f776ab5e15901b4a9159dcec7da34f4, type: 3}
-  length: 1.000975
+  soundClip: {fileID: 8300000, guid: 3eac5320d6c925a4787d05ec1266163c, type: 3}
+  length: 0.73142856
   pauseAfter: 0

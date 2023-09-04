@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnterCaveLine
   m_EditorClassIdentifier: 
   dialog: Alright, Lets See how Deep I can go this time...
-  soundClip: {fileID: 8300000, guid: d19bc9efdf3a71646a1833273205e7f3, type: 3}
-  length: 2.390703
+  soundClip: {fileID: 8300000, guid: 19af0c768c5f1984292d76d987b91e62, type: 3}
+  length: 3.564263
   pauseAfter: 0

@@ -54,6 +54,7 @@ public class interactionTriggers : MonoBehaviour
         {
             Destroy(monsterBiteDirector.gameObject);
             Destroy(other.gameObject);
+            pauseAll();
             monsterRunDirector.Play();
         }
 
@@ -70,7 +71,23 @@ public class interactionTriggers : MonoBehaviour
         if (other.tag == "rockslideTrigger")
         {
             GameObject.Find("Rockslide").GetComponent<PlayableDirector>().Play();
+            pauseAll();
             Destroy(other.gameObject);
+        }
+
+        if (other.tag == "dialogTrigger")
+        {
+            conversationTrigger convo = other.GetComponent<conversationTrigger>();
+            if (convo.pause)
+            {
+                pauseAll();
+            }
+            convo.play();
+        }
+
+        if (other.tag == "endTrigger")
+        {
+            other.GetComponent<endOfCrawlTrigger>().trigger();
         }
     }
 
@@ -81,5 +98,15 @@ public class interactionTriggers : MonoBehaviour
             interactText.text = "";
             inStartCrawlTrigger = false;
         }
+    }
+
+    private void pauseAll()
+    {
+        characterMotor m = GameObject.FindObjectOfType<characterMotor>();
+        m.pause();
+        mouseLook l = GameObject.FindObjectOfType<mouseLook>();
+        l.pause();
+        dialogManager.dialogEndedEvent += m.unPauseDialog;
+        dialogManager.dialogEndedEvent += l.unPauseDialog;
     }
 }

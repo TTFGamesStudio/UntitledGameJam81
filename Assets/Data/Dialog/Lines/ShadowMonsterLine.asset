@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ShadowMonsterLine
   m_EditorClassIdentifier: 
   dialog: What the hell was that!?
-  soundClip: {fileID: 8300000, guid: ce454ab02bcd873499e69f899f8f73dd, type: 3}
+  soundClip: {fileID: 8300000, guid: d819db9837b53a6479eaf1aa7c4049bf, type: 3}
   length: 1.3138549
   pauseAfter: 0

@@ -21,7 +21,6 @@ public class playConversation : MonoBehaviour
 
     public void play()
     {
-        Debug.Log("player called");
         GameObject.FindObjectOfType<dialogManager>().startDialog(convo);
     }
 }
