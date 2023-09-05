@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c1a75f24525f949b1ccd9a3644d9e9, type: 3}
   m_Name: Ending1
   m_EditorClassIdentifier: 
-  dialog: 
-  soundClip: {fileID: 0}
-  length: 0
+  dialog: Dinner Time!
+  soundClip: {fileID: 8300000, guid: bdf43084e91b9f442848dafa940943be, type: 3}
+  length: 1.6718367
   pauseAfter: 0

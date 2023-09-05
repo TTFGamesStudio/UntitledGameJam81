@@ -14,6 +14,8 @@ public class interactionTriggers : MonoBehaviour
 
     [SerializeField] private PlayableDirector monsterBiteDirector;
     [SerializeField] private PlayableDirector monsterRunDirector;
+    [SerializeField] private PlayableDirector ending;
+    [SerializeField] private dialogConversation endingConversation;
     
     
     // Start is called before the first frame update
@@ -89,6 +91,12 @@ public class interactionTriggers : MonoBehaviour
         {
             other.GetComponent<endOfCrawlTrigger>().trigger();
         }
+        
+        if (other.tag == "endingTrigger")
+        {
+            dialogManager.instance.startDialog(endingConversation);
+            dialogManager.dialogEndedEvent += endingDialogFinished;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -108,5 +116,11 @@ public class interactionTriggers : MonoBehaviour
         l.pause();
         dialogManager.dialogEndedEvent += m.unPauseDialog;
         dialogManager.dialogEndedEvent += l.unPauseDialog;
+    }
+
+    void endingDialogFinished()
+    {
+        dialogManager.dialogEndedEvent -= endingDialogFinished;
+        ending.Play();
     }
 }

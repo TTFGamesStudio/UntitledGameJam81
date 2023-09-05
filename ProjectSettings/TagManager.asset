@@ -17,6 +17,7 @@ TagManager:
   - rockslideTrigger
   - dialogTrigger
   - endTrigger
+  - endingTrigger
   layers:
   - Default
   - TransparentFX

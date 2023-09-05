@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,10 @@ public class titleLoader : MonoBehaviour
     public void quitGame()
     {
         Application.Quit();
+        if (Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
     }
 
     public void loadCredits()

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8715d1d427c5c3041915a84a3902eb57, type: 3}
   m_Name: Ending
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - {fileID: 11400000, guid: d29c4c9a0c7138b489b7eec7ac25ba56, type: 2}
+  - {fileID: 11400000, guid: eed0c364f9f757c46b154d3194c085fd, type: 2}
   alwaysShowSubtitles: 0
   dontPlayAudio: 0
   continueGameplay: 0
