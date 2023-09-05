@@ -85,17 +85,20 @@ public class interactionTriggers : MonoBehaviour
                 pauseAll();
             }
             convo.play();
+            Destroy(other.gameObject);
         }
 
         if (other.tag == "endTrigger")
         {
             other.GetComponent<endOfCrawlTrigger>().trigger();
+            Destroy(other.gameObject);
         }
         
         if (other.tag == "endingTrigger")
         {
             dialogManager.instance.startDialog(endingConversation);
             dialogManager.dialogEndedEvent += endingDialogFinished;
+            Destroy(other.gameObject);
         }
     }
 
