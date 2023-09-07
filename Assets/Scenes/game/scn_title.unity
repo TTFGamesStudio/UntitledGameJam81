@@ -251,13 +251,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b416fbce5a38cc47a3a1e709f95f5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfuStatus: PSXEffects v1.18 - update available (click to update).
+  cfuStatus: PSXEffects v1.18.4 - version ahead?!
   sections: 01010100
   customRes: {x: 836, y: 470}
   resolutionFactor: 1
   limitFramerate: -1
   skipFrames: 0
   affineMapping: 0
+  clampAffine: 0
+  affineBounds: 0
   polygonalDrawDistance: 0
   vertexInaccuracy: 30
   polygonInaccuracy: 2
@@ -774,6 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603913260}
   - component: {fileID: 603913259}
+  - component: {fileID: 603913261}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -795,7 +798,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 4127330153832700169, guid: 51e0a2a54c0427a4d9faa2c2ab32fda1, type: 2}
+    value: {fileID: 1401197409}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &603913260
@@ -813,6 +818,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603913261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603913258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e86d081482bfbc2419fd38113395f72c, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1829476940}
+          m_TargetAssemblyTypeName: titleLoader, Assembly-CSharp
+          m_MethodName: loadCredits
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &850239759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,8 +1824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea28bd50caeb1847b2df711f815adf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameIndex: 1
-  creditsIndex: 2
+  gameIndex: 2
+  creditsIndex: 4
   playTimeline: {fileID: 1447942881}
   creditsTimeline: {fileID: 603913259}
   quitTimeline: {fileID: 1567387183}

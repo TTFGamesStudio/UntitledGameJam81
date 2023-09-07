@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -558.5563, y: 920.2838, z: -663.39685}
 --- !u!114 &146509908
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -30817,7 +30817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302578582}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0085061425, y: -0.13373971, z: -0.0030375498, w: 0.9909754}
+  m_LocalRotation: {x: 0.012290555, y: -0.136262, z: -0.0025736496, w: 0.99059325}
   m_LocalPosition: {x: 0, y: 0.41979435, z: 0.013140447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30943,6 +30943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307688537}
   - component: {fileID: 1307688536}
+  - component: {fileID: 1307688538}
   m_Layer: 0
   m_Name: ending
   m_TagString: Untagged
@@ -31003,6 +31004,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307688538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307688535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e299dd6047be55c42b7504d49fbd8305, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1444229720}
+          m_TargetAssemblyTypeName: goToEnding, Assembly-CSharp
+          m_MethodName: End
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1307769055
 GameObject:
   m_ObjectHideFlags: 0
@@ -33236,6 +33267,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1444229718}
   - component: {fileID: 1444229717}
+  - component: {fileID: 1444229720}
+  - component: {fileID: 1444229719}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -33276,6 +33309,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1444229719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444229716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e299dd6047be55c42b7504d49fbd8305, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1444229720}
+          m_TargetAssemblyTypeName: goToEnding, Assembly-CSharp
+          m_MethodName: End
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1444229720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444229716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeb6f3c034f4bb488cbd7766891ebdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444942588
 GameObject:
   m_ObjectHideFlags: 0
@@ -41581,7 +41656,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -650.36865, y: 621.48975, z: -670.5802}
 --- !u!114 &1786132012
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/game/Splash.unity
+    guid: 46affdb7920f85c4cb37b6e2dab1f011
+  - enabled: 1
     path: Assets/Scenes/game/scn_title.unity
     guid: c7129cb6befa2a04fb691244f6a8ead0
   - enabled: 1
     path: Assets/Scenes/game/scn_game.unity
     guid: 79949250cdc011943b444ea9f227618f
+  - enabled: 1
+    path: Assets/Scenes/game/scn_ending.unity
+    guid: b13fb40e78896e04a9505b1ce9af38f8
+  - enabled: 1
+    path: Assets/Scenes/game/scn_credis.unity
+    guid: 5c3dabd196359cf40ad55936378ff89a
   m_configObjects: {}

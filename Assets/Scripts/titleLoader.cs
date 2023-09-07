@@ -37,6 +37,7 @@ public class titleLoader : MonoBehaviour
 
     public void loadCredits()
     {
+        Debug.Log("load credits");
         SceneManager.LoadScene(creditsIndex);
     }
 
