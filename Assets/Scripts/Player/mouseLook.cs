@@ -27,6 +27,7 @@ public class mouseLook : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private dialogConversation noteConvo;
     [SerializeField] private GameObject audioPrefab;
+    [SerializeField] private settings playerSettings;
 
     [Header("Data")] 
     [SerializeField] private bool paused;
@@ -45,7 +46,8 @@ public class mouseLook : MonoBehaviour
         triggers = GetComponent<interactionTriggers>();
         lockCursor();
         rb = GetComponent<Rigidbody>();
-        
+
+        playerSettings = GameObject.FindObjectOfType<settings>();
         
         dialogManager.dialogEndedEvent += unPauseDialog;
         pause();
@@ -56,9 +58,12 @@ public class mouseLook : MonoBehaviour
     {
         if (!paused)
         {
-            updateInput();
-            getRotation();
-            getLookAtObject();
+            if (!playerSettings.paused)
+            {
+                updateInput();
+                getRotation();
+                getLookAtObject();
+            }
         }
         else
         {
@@ -105,12 +110,19 @@ public class mouseLook : MonoBehaviour
 
     float yRot()
     {
-        return rot.y + calculateRot(input.x);
+        
+
+        return rot.y + (calculateRot(input.x));
     }
 
     float xRot()
     {
-        return Mathf.Clamp(rot.x + calculateRot(input.y), xClamp.x, xClamp.y);
+        float invert = 1;
+        if (!playerSettings.invertY)
+        {
+            invert *= -1;
+        }
+        return Mathf.Clamp(rot.x + calculateRot(input.y) * invert, xClamp.x, xClamp.y);
     }
 
     void getRotation()

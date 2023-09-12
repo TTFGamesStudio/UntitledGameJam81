@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c1a75f24525f949b1ccd9a3644d9e9, type: 3}
   m_Name: EnterCaveLine
   m_EditorClassIdentifier: 
-  dialog: Alright, Lets See how Deep I can go this time...
+  dialog: Alright, Lets See how far I can go this time...
   soundClip: {fileID: 8300000, guid: 19af0c768c5f1984292d76d987b91e62, type: 3}
   length: 3.564263
   pauseAfter: 0

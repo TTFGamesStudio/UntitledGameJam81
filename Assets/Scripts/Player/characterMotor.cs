@@ -8,6 +8,7 @@ public class characterMotor : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform facing;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private settings playerSettings;
 
     [Header("Parameters")] 
     [SerializeField] private float walkSpeed;
@@ -23,6 +24,8 @@ public class characterMotor : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         dialogManager.dialogEndedEvent += unPauseDialog;
+        
+        playerSettings = GameObject.FindObjectOfType<settings>();
         pause();
     }
 
@@ -31,8 +34,11 @@ public class characterMotor : MonoBehaviour
     {
         if (!paused)
         {
-            updateInput();
-            controller.Move(getMoveVector());
+            if (!playerSettings.paused)
+            {
+                updateInput();
+                controller.Move(getMoveVector());
+            }
         }
     }
 

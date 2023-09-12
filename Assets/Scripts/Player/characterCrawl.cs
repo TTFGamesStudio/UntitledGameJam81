@@ -20,6 +20,8 @@ public class characterCrawl : MonoBehaviour
     [SerializeField] private AudioSource dragSound;
     [SerializeField] private Animator leftArm;
     [SerializeField] private Animator rightArm;
+    
+    [SerializeField] private settings playerSettings;
 
     [Header("Crawling")] 
     [SerializeField] private bool isCrawling;
@@ -40,60 +42,66 @@ public class characterCrawl : MonoBehaviour
         spline = GameObject.FindObjectOfType<SplinePositioner>();
         controller = GetComponent<CharacterController>();
         rb = GetComponent<CapsuleCollider>();
+        
+        
+        playerSettings = GameObject.FindObjectOfType<settings>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCrawling)
+        if (!playerSettings.paused)
         {
-            spline.SetPercent(progress);
-            if (Input.GetKeyUp(KeyCode.Q) && leftStamina >= 0.5f)
+            if (isCrawling)
             {
-                progressVelocity += progressPerPull * leftStamina;
-                leftStamina = 0;
-                staminaRefillSpeed *= .99f;
-                dragSound.pitch = Random.Range(0.9f, 1.1f);
-                dragSound.Play();
-                leftArm.SetTrigger("drag");
-            }
-            
-            if (Input.GetKeyUp(KeyCode.E) && RightStamina >= 0.5f)
-            {
-                progressVelocity += progressPerPull * RightStamina;
-                RightStamina = 0;
-                staminaRefillSpeed *= .99f;
-                dragSound.pitch = Random.Range(0.9f, 1.1f);
-                dragSound.Play();
-                rightArm.SetTrigger("drag");
-            }
+                spline.SetPercent(progress);
+                if (Input.GetKeyUp(KeyCode.Q) && leftStamina >= 0.5f)
+                {
+                    progressVelocity += progressPerPull * leftStamina;
+                    leftStamina = 0;
+                    staminaRefillSpeed *= .99f;
+                    dragSound.pitch = Random.Range(0.9f, 1.1f);
+                    dragSound.Play();
+                    leftArm.SetTrigger("drag");
+                }
 
-            fillLeft.fillAmount = leftStamina;
-            fillRight.fillAmount = RightStamina;
+                if (Input.GetKeyUp(KeyCode.E) && RightStamina >= 0.5f)
+                {
+                    progressVelocity += progressPerPull * RightStamina;
+                    RightStamina = 0;
+                    staminaRefillSpeed *= .99f;
+                    dragSound.pitch = Random.Range(0.9f, 1.1f);
+                    dragSound.Play();
+                    rightArm.SetTrigger("drag");
+                }
 
-            if (leftStamina < 1)
-            {
-                leftStamina += Time.deltaTime * staminaRefillSpeed;
-            }
-            else
-            {
-                leftStamina = 1;
-            }
+                fillLeft.fillAmount = leftStamina;
+                fillRight.fillAmount = RightStamina;
 
-            if (RightStamina < 1)
-            {
-                RightStamina += Time.deltaTime * staminaRefillSpeed;
-            }
-            else
-            {
-                RightStamina = 1;
-            }
+                if (leftStamina < 1)
+                {
+                    leftStamina += Time.deltaTime * staminaRefillSpeed;
+                }
+                else
+                {
+                    leftStamina = 1;
+                }
 
-            progress += progressVelocity;
-            progressVelocity = Mathf.Lerp(progressVelocity, 0, Time.deltaTime * 10);
-            if (progressVelocity <= 0)
-            {
-                progressVelocity = 0;
+                if (RightStamina < 1)
+                {
+                    RightStamina += Time.deltaTime * staminaRefillSpeed;
+                }
+                else
+                {
+                    RightStamina = 1;
+                }
+
+                progress += progressVelocity;
+                progressVelocity = Mathf.Lerp(progressVelocity, 0, Time.deltaTime * 10);
+                if (progressVelocity <= 0)
+                {
+                    progressVelocity = 0;
+                }
             }
         }
     }
